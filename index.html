@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rene Andre Olivo Romero - Cloud Engineer & QA Specialist</title>
+    <link rel="icon" href="media/cookiebowbow.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #232927 0%, #000000 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background: #4ef5cb;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4ef5cb, #00d4aa);
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #4ef5cb;
+            border-radius: 2px;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-left: 4px solid #4ef5cb;
+            background: linear-gradient(180deg, #30373d 0%, #e9ecef 100%);
+            border-radius: 0 15px 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(78, 245, 203, 0.3);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #3eb2ff;
+        }
+
+        .company {
+            font-size: 1.2em;
+            color: #4ef5cb;
+            font-weight: 600;
+        }
+
+        .duration {
+            background: #4ef5cb;
+            color: rgb(0, 0, 0);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .job-description {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 4px solid #4ef5cb;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(78, 245, 203, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #4ef5cb;
+            font-size: 0.8em;
+        }
+
+        /* Education */
+        .education-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4ef5cb;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(78, 245, 203, 0.2);
+        }
+
+        .education-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .education-school {
+            color: #4ef5cb;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Languages */
+        .languages {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .language {
+            background: linear-gradient(135deg, #4ef5cb, #00d4aa);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 5px 15px rgba(78, 245, 203, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 245, 203, 0.4);
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tool-link {
+            display: block;
+            background: linear-gradient(135deg, #4ef5cb, #00d4aa);
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(78, 245, 203, 0.3);
+        }
+
+        .tool-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(78, 245, 203, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 25px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+         /* Contact Form */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4ef5cb;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(78, 245, 203, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4ef5cb, #00d4aa);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px auto 0;
+            min-width: 200px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(78, 245, 203, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 245, 203, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-icon {
+            font-size: 1.2em;
+        }
+
+        /* Success message */
+        .success-message {
+            background: linear-gradient(135deg, #4ef5cb, #00d4aa);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 600;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Rene Andre Olivo Romero</h1>
+                <p class="subtitle">Cloud Engineer • QA Specialist • Technical Trainer</p>
+               
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#languages">Languages</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="experience" class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">QA/Trainer - The Functionary</div>
+                        <div class="company">RL Canning</div>
+                    </div>
+                    <div class="duration">Sep 2024 - Present</div>
+                </div>
+                <div class="job-description">
+                    Design and deliver training for Microsoft 365/Entra support teams, evaluate call quality, provide feedback, and create performance improvement action plans. Developed QA guidelines, scripted QA forms, and innovative tools including a comment generator and ticket tracker to enhance team efficiency and consistency.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Associate Cloud Engineer (Serverless Solutions)</div>
+                        <div class="company">Google via Telus International El Salvador</div>
+                    </div>
+                    <div class="duration">Jun 2021 - Aug 2024</div>
+                </div>
+                <div class="job-description">
+                    Provided technical assistance to IT departments leveraging Google Cloud services. Conducted meetings with IT heads, analyzed logs and metrics using SQL queries, and recommended architectures/solutions for serverless implementations. Specialized in troubleshooting complex cloud infrastructure issues.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Developer Experience Cloud Engineer</div>
+                        <div class="company">Google via Telus International El Salvador</div>
+                    </div>
+                    <div class="duration">Mar 2019 - Jun 2021</div>
+                </div>
+                <div class="job-description">
+                    Assisted developers building integrations with Google Workspace API libraries using JavaScript, Python, and Node.js. Implemented SSO solutions using SAML, OpenID Connect, and OAuth 2.0 protocols for enterprise organizations.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Sales & Client Relationship Manager</div>
+                        <div class="company">Latina Nerds</div>
+                    </div>
+                    <div class="duration">Aug 2018 - Mar 2019</div>
+                </div>
+                <div class="job-description">
+                    Managed prospect outreach and client consultations, created payment tracking reports, developed business strategies with CEO, analyzed performance metrics, and provided Spanish translation services for promotional materials.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Inside Sales Representative</div>
+                        <div class="company">HostPapa</div>
+                    </div>
+                    <div class="duration">Aug 2018 - Aug 2019</div>
+                </div>
+                <div class="job-description">
+                    Provided technical solutions through upgrade recommendations and comprehensive technical support for hosting services.
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Learning Services Specialist</div>
+                        <div class="company">Zynga via Telus International El Salvador</div>
+                    </div>
+                    <div class="duration">Mar 2008 - Nov 2013</div>
+                </div>
+                <div class="job-description">
+                    Trained new hires and created comprehensive training materials for social gaming products. Developed soft skills programs to improve customer satisfaction metrics and supervised new employees during their nesting period.
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Training & Quality Assurance</h3>
+                    <ul class="skill-list">
+                        <li>Training Design & Delivery</li>
+                        <li>Customer Experience Auditing</li>
+                        <li>Performance Improvement Planning</li>
+                        <li>QA Guidelines Development</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Cloud Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Google Cloud Platform</li>
+                        <li>Firebase</li>
+                        <li>Cloud Run</li>
+                        <li>App Engine</li>
+                        <li>Cloud Functions</li>
+                        <li>Cloud Build & CI/CD</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Development & APIs</h3>
+                    <ul class="skill-list">
+                        <li>REST APIs</li>
+                        <li>Google Apps Script</li>
+                        <li>JavaScript, Python, Node.js</li>
+                        <li>SSO Implementation</li>
+                        <li>OAuth 2.0, SAML, OpenID</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Business Tools</h3>
+                    <ul class="skill-list">
+                        <li>Salesforce CRM</li>
+                        <li>ServiceNow CRM</li>
+                        <li>Google Sheets & Excel</li>
+                        <li>Reporting & Analytics</li>
+                        <li>DNS Troubleshooting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="section">
+            <h2>Custom Tools Developed</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em; color: #555;">
+                Innovative solutions I've created to enhance team productivity and efficiency:
+            </p>
+            <div class="tools-grid">
+                <a href="http://comgen.olivo.top" class="tool-link" target="_blank">
+                    <div>💬 Comment Generator</div>
+                    <div style="font-size: 0.9em; margin-top: 5px;">Consistent team communication tool</div>
+                </a>
+                <a href="http://next.olivo.top" class="tool-link" target="_blank">
+                    <div>🎫 Ticket Tracker</div>
+                    <div style="font-size: 0.9em; margin-top: 5px;">Intelligent ticket assignment system</div>
+                </a>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2>Education & Certifications</h2>
+            
+            <div class="education-item">
+                <div class="education-title">Google Cloud Associate Cloud Engineer</div>
+                <div class="education-school">Google Cloud Platform</div>
+                <div class="education-date">Professional Certification</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">Bachelor of Business Administration (BBA)</div>
+                <div class="education-school">ESI School of Management, El Salvador</div>
+                <div class="education-date">August 2012</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">High School Graduate</div>
+                <div class="education-school">Colegio Spencer, El Salvador</div>
+                <div class="education-date">October 2007</div>
+            </div>
+        </section>
+
+        <section id="languages" class="section">
+            <h2>Languages</h2>
+            <div class="languages">
+                <div class="language">Spanish </div>
+                <div class="language">English </div>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact Me</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em; color: #555;">
+                Do you find my skills interesting? Let's talk!
+            </p>
+            
+            <form class="contact-form" onsubmit="handleSubmit(event)" netlify>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a topic...</option>
+                        <option value="cloud-engineering">Cloud Engineering Services</option>
+                        <option value="training">Training & Development</option>
+                        <option value="qa-consulting">QA Consulting</option>
+                        <option value="collaboration">Collaboration Opportunity</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or how I can help you..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <span class="btn-icon">📧</span>
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rene Andre Olivo Romero.</p>
+            <p>Cloud Engineer • Technical Trainer • Quality Assurance Specialist</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Contact form handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const company = formData.get('company') || 'Not specified';
+            const phone = formData.get('phone') || 'Not provided';
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link with form data
+            const emailSubject = `Contact Form: ${subject}`;
+            const emailBody = `Name: ${name}
+Email: ${email}
+Company: ${company}
+Phone: ${phone}
+
+Message:
+${message}
+
+---
+Sent from your portfolio website contact form`;
+            
+            const mailtoLink = `mailto:rene@olivo.top?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.style.display = 'block';
+            successDiv.innerHTML = '✅ Thank you! Your email client should open now. If not, please email me directly at rene@olivo.top';
+            
+            form.appendChild(successDiv);
+            
+            // Reset form after a delay
+            setTimeout(() => {
+                form.reset();
+                successDiv.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
